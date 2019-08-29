@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS and JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Material -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="../material_lite/material.min.css">
+<script defer src="../material_lite/material.min.js"></script>
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+<!-- Own Stuff -->
+<title>Calculator</title>
+<script src="../javascript/decimal.js"></script>
+<script src="../javascript/swipe.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body id="root">
+    <!-- Hamburger Menu -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title header-title">
+                    Online Calculator by Simon Seibert
+                </span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div id="sideDrawer" class="mdl-layout__drawer" style="border: 0">
+            <span class="mdl-layout-title">Change Mode</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="#">Decimal</a>
+                <a class="mdl-navigation__link" href="binary.html">Binary</a>
+                <a class="mdl-navigation__link" href="converter.html">Converter</a>
+            </nav>
+        </div>
+        <!-- CONTENT -->
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+
+                <div class="container">
+                    <h4>Calculator (Decimal)</h4>
+                </div>
+
+                <div class="container" style="text-align: center">
+
+                    <!-- Calculation Label -->
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="lCalculation" autofocus>
+                        <label class="mdl-textfield__label" for="lCalculation"></label>
+                    </div>
+
+                    <br>
+
+                    <!-- Delete Buttons -->
+                    <button style="margin-left: 135px" id="bDeleteAll" onclick="deleteAll()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent removeButton marginBottom">
+                        <b>C</b>
+                    </button>
+                    <button style="width: 132px" id="bDeleteLast" onclick="deleteLast()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent removeButton marginBottom">
+                        <i class="fas fa-backspace"></i>
+                    </button>
+
+                    <br>
+
+                    <!-- Numbers and Operators -->
+                    <button id="b7" onclick="appendNumber(7)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>7</b>
+                    </button>
+                    <button id="b8" onclick="appendNumber(8)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>8</b>
+                    </button>
+                    <button id="b9" onclick="appendNumber(9)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>9</b>
+                    </button>
+                    <button id="bAdd" onclick="appendNumber('+')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent marginBottom">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button id="bBracketStart" onclick="appendNumber('(')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent marginBottom">
+                        <b>(</b>
+                    </button>
+
+                    <br>
+
+                    <button id="b4" onclick="appendNumber(4)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>4</b>
+                    </button>
+                    <button id="b5" onclick="appendNumber(5)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>5</b>
+                    </button>
+                    <button id="b6" onclick="appendNumber(6)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>6</b>
+                    </button>
+                    <button id="bSubtract" onclick="appendNumber('-')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent marginBottom">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button id="bBracketEnd" onclick="appendNumber(')')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent marginBottom">
+                        <b>)</b>
+                    </button>
+
+                    <br>
+
+                    <button id="b1" onclick="appendNumber(1)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>1</b>
+                    </button>
+                    <button id="b2" onclick="appendNumber(2)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>2</b>
+                    </button>
+                    <button id="b3" onclick="appendNumber(3)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton marginBottom">
+                        <b>3</b>
+                    </button>
+                    <button id="bMultiply" onclick="appendNumber('*')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent marginBottom">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button id="bSqrt" onclick="appendNumber('√(...)')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent marginBottom">
+                        <b>√</b>
+                    </button>
+
+                    <br>
+
+                    <button id="bPoint" onclick="appendNumber('.')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <b>.</b>
+                    </button>
+                    <button id="b0" onclick="appendNumber(0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent numberButton">
+                        <b>0</b>
+                    </button>
+                    <button id="bEquals" onclick="printResultDecimal()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <i class="fas fa-equals"></i>
+                    </button>
+                    <button id="bDivide" onclick="appendNumber('/')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <i class="fas fa-divide"></i>
+                    </button>
+                    <button id="bPow" onclick="appendNumber('X^Y')" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <b>^</b>
+                    </button>
+
+                    <br>
+                    <br>
+                    <p style="color:red" id="error"></p>
+                </div>
+
+                <div class="container">
+                    <h4>History</h4>
+                    <!-- Holds Content for History -->
+                    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp history">
+                        <thead>
+                            <tr>
+                                <th>Calculation</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyContainer">
+
+                        </tbody>
+                    </table>
+                    <button onclick="clearHistory()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent clearButton">Clear History</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    //Get Cookie on load
+    getCookie();
+    // Touch Controll For Drawer
+    swipeDrawer();
+    // Listens for Key Input
+    keyListener();
+    //Listn for Cell Click
+    tableListener();
+</script>
+
+</html>

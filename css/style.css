@@ -1,0 +1,82 @@
+/*////////////////*/
+/*     BUTTONS   */
+/*//////////////*/
+
+/* Number Button */
+.numberButton {
+    background-color: white !important;
+    color: black !important;
+    border: solid !important;
+    border-width: 1px !important;
+}
+
+.numberButton:focus {
+    background-color: green !important;
+}
+
+.numberButton:hover {
+    background-color: rgba(128, 128, 128, 0.651) !important;
+}
+
+.numberButton:disabled {
+    background-color: rgb(71, 71, 71) !important;
+    color: grey !important;
+}
+
+.numberButton:disabled:hover {
+    background-color: rgb(71, 71, 71) !important;
+}
+
+/* MDL Button */
+.mdl-button {
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+}
+.mdl-button:disabled {
+    background-color: rgb(71, 71, 71) !important;
+    color: grey !important;
+}
+
+/* Remove Button */
+.removeButton:active {
+    background-color: rgb(175, 8, 8) !important;
+}
+
+/*/////////////////////////*/
+/* CALCULATION TEXT-FIELD */
+/*///////////////////////*/
+
+#lCalculation {
+    text-align: center;
+}
+
+#lCalculation:disabled {
+    color:black;
+}
+
+/*/////////*/
+/* OTHERS */
+/*///////*/
+
+#root {
+    background-color: rgba(128, 128, 128, 0.178);
+}
+
+.history {
+    width: 100% !important;
+}
+
+.marginRight {
+    margin-right: 5px;
+}
+
+.marginBottom {
+    margin-bottom: 5px;
+}
+
+.clearButton {
+    width: 100% !important;
+    background-color: rgb(141, 7, 7) !important;
+}
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS and JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Material -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="../material_lite/material.min.css">
+<script src="../material_lite/material.min.js"></script>
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+<!-- Own Stuff -->
+<title>Calculator</title>
+<script src="../javascript/converter.js"></script>
+<script src="../javascript/swipe.js"></script>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body id="root">
+    <!-- Hamburger Menu -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title header-title">
+                    Online Calculator by Simon Seibert
+                </span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div id="sideDrawer" class="mdl-layout__drawer" style="border: 0">
+            <span class="mdl-layout-title">Change Mode</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="decimal.html">Decimal</a>
+                <a class="mdl-navigation__link" href="binary.html">Binary</a>
+                <a class="mdl-navigation__link" href="#">Converter</a>
+            </nav>
+        </div>
+        <!-- CONTENT -->
+        <main class="mdl-layout__content">
+            <div class="container">
+                <h4>Converter</h4>
+                <div class="container">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="tDecimal">Decimal:</label>
+                        <input onchange="converter()" class="mdl-textfield__input" type="text" id="tDecimal">
+                    </div>
+
+                    <br>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="tBinary">Binary:</label>
+                        <input onchange="converter()" class="mdl-textfield__input" type="text" id="tBinary">
+                    </div>
+
+                    <br>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="tHexadecimal">Hexadezimal:</label>
+                        <input onchange="converter()" class="mdl-textfield__input" type="text" id="tHexadecimal">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    // Touch Controll For Drawer
+    swipeDrawer();
+    //Change Listener
+    converterChangeListener();
+</script>
+
+</html>
